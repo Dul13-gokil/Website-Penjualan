@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Background pattern */
+.bg-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(rgba(0, 123, 255, 0.1) 3px, transparent 3px),
+        radial-gradient(rgba(0, 123, 255, 0.1) 3px, transparent 3px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    z-index: -1;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #007bff;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #007bff;
+}
+
+.username {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.username strong {
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Order Header with Icon */
+.order-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Desktop Table Style */
+.desktop-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.desktop-table th, .desktop-table td {
+    padding: 12px 10px;
+    text-align: center;
+}
+
+.desktop-table th {
+    background-color: #007bff;
+    color: white;
+    white-space: nowrap;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.desktop-table td {
+    border-bottom: 1px solid #eee;
+}
+
+.desktop-table td.alamat {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.desktop-table td.alamat:hover {
+    white-space: normal;
+    overflow: visible;
+}
+
+.desktop-table tr:last-child td {
+    border-bottom: none;
+}
+
+.desktop-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.desktop-table tr.total-row {
+    font-weight: 600;
+    background-color: #f8f9fa;
+}
+
+/* Status Styles */
+.status {
+padding: 6px 12px;
+border-radius: 50px;
+font-weight: 500;
+font-size: 13px;
+display: inline-block;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
+}
+
+.status:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.status i {
+margin-right: 5px;
+}
+
+.pending {
+background-color: #ffc107;
+color: #212529;
+border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.processed {
+background-color: #007bff;
+color: #ffffff;
+border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+.completed {
+background-color: #28a745;
+color: #ffffff;
+border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.cancelled {
+background-color: #dc3545;
+color: #ffffff;
+border: 1px solid rgba(220, 53, 69, 0.3);
+}
+/* Payment Badge */
+.payment-badge {
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: #e9ecef;
+    color: #495057;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Mobile Card Style */
+.mobile-cards {
+    display: none;
+}
+
+.product-card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.product-card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.product-card-body {
+    padding: 15px;
+    display: flex;
+    background-color: white;
+}
+
+.product-card-image {
+    flex: 0 0 100px;
+    margin-right: 15px;
+}
+
+.product-card-details {
+    flex: 1;
+}
+
+.product-card-row {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: flex-start;
+}
+
+.product-card-label {
+    flex: 0 0 80px;
+    font-weight: 500;
+    color: #666;
+}
+
+.product-card-value {
+    flex: 1;
+    color: #333;
+    word-break: break-word;
+}
+
+.product-card-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Buttons and Common Elements */
+.product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+tr:hover .product-image, .product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    margin: 2px 5px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,123,255,0.2);
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+.back-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+
+/* Empty orders message */
+.empty-orders {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.empty-orders i {
+    font-size: 60px;
+    color: #ccc;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Total summary box */
+.order-summary {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-top: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-summary-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.order-summary-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #007bff;
+}
+
+/* Copyright */
+.copyright {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed #ddd;
+}
+
+/* Info note for filtered orders */
+.filter-note {
+    background-color: #e8f4ff;
+    border-left: 4px solid #007bff;
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+    
+    .container {
+        width: 100%;
+        padding: 20px 15px;
+    }
+    
+    .desktop-table {
+        display: none;
+    }
+    
+    .mobile-cards {
+        display: block;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    .username {
+        font-size: 0.85rem;
+    }
+    
+    .product-card-image {
+        flex: 0 0 80px;
+    }
+    
+    .product-image {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .order-summary {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .back-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-card-body {
+        flex-direction: column;
+    }
+    
+    .product-card-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .product-image {
+        width: 100px;
+        height: 100px;
+    }
+}

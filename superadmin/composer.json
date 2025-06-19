@@ -1,0 +1,13 @@
+{
+    "name": "tokobangunan222060/app",
+    "description": "Cetak laporan",
+    "type": "project",
+    "require": {
+        "tecnickcom/tcpdf": "^6.9"
+    },
+    "authors": [
+        {
+            "name": "tokobangunan222060"
+        }
+    ]
+}
